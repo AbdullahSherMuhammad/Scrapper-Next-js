@@ -21,7 +21,6 @@ export async function GET(request: Request) {
         password: process.env.SPORTFENGUR_PASS,
       }),
     });
-    
 
     if (!loginResponse.ok) {
       throw new Error(`Login failed: ${loginResponse.statusText}`);
@@ -39,7 +38,7 @@ export async function GET(request: Request) {
     const eventSearchData = await eventSearchResponse.json();
     const eventNumer = eventSearchData?.tournaments?.[0]?.numer;
     if (!eventNumer) {
-      throw new Error(`No internal event numer found for eventId: ${eventId}`);
+      throw new Error(`No internal event numer found for ev+1 entId: ${eventId}`);
     }
 
     const startingListURL = `https://sportfengur.com/api/v1/en/startinglist/${eventNumer}/${compId}`;
